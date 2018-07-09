@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="row">{{lesson.title}}</h1>
+            {% if lesson.video %}
+            <div class="row embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{{ lesson.video }}"></iframe>
+            </div>
+            {% else %}
+            <h2 class="row text-danger">No video to display</h2>
+            {% endif %}
+            <div class="row">
+                {{lesson.content}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

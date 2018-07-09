@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}<br>
+{% for item in items %}
+{% if forloop.counter|divisibleby:2 %}
+
+<br>
+<div class="container">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading"><a
+                    href="{% url 'tutorial:tutorial_series_detail' item.slug %}">{{item.name}}</a> <span
+                    class="text-muted">{{item.lesson}} Lessons</span></h2>
+            <p><strong>Student Experience: </strong>{{ item.studentExperience }}</p>
+            <p class="lead">{{item.description|truncatechars:200}}</p>
+        </div>
+        <div class="col-md-5">
+            <div class="row embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{{ item.tutorial.all.0.video }}"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+<br>
+<div class="container">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading"><a
+                    href="{% url 'tutorial:tutorial_series_detail' item.slug %}">{{item.name}}</a> <span
+                    class="text-muted">{{item.lesson}} Lessons</span></h2>
+            <p><strong>Student Experience: </strong>{{ item.studentExperience }}</p>
+            <p class="lead">{{item.description|truncatechars:200}}</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <div class="row embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{{ item.tutorial.all.0.video }}"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+
+{% include "pagination.html" %}
+{% endblock %}

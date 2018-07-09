@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+
+    #user apps
+    'newsletters',
+    'tutorial.apps.TutorialConfig',
 ]
 
 MIDDLEWARE = [

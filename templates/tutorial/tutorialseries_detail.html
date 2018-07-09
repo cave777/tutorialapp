@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">{{ object.name }}</h1>
+        <p> {{object.description}}</p>
+        <p>Experience Level : {{object.studentExperience}}</p>
+    </div>
+</div>
+<div class="container">
+    <ol type="1">
+        {% for lesson in lessons %}
+        <li>
+            <span class="badge">{{lesson.length}}</span>
+            <a href="{% url 'tutorial:lesson_detail' lesson.tutorial_series.slug lesson.slug %}">{{lesson.title}}</a>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}
