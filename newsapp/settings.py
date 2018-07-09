@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
 
     #user apps
-    'newsletters',
+    'newsletters.apps.NewslettersConfig',
     'tutorial.apps.TutorialConfig',
 ]
 
